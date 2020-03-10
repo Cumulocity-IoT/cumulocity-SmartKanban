@@ -1,6 +1,6 @@
 # Cumulocity Example on how to trigger Events with an Amazon Dashbutton for a Smart Kanban System
 This is an example for sniffing data packages inside a network and filtering connection packages. This can be used e.g. to make Amazon Dashbuttons trigger Events and thus whole actions in Cumulocity.
-In this example I used an Amazon  Dashbutton, since they are cheap and easy to use (see section). The Event how ever can be used as a Smart Kanbas inside a storage system as a real industrial IoT example.
+In this example I used an Amazon Dashbutton, since they are cheap and easy to use (see section). The Event however can be used as a Smart Kanbas inside a storage system as a real industrial IoT example.
 However any other device registartion can be used such as iPhones within a network or Laptops. Some manufactures due to energy saving reasons deactivate the connection to the wireless network such that a "new" device within the network might not be "new" within the network. Be carefull!
 
 You can use the APAMA Analytics Builder to create rules around the incoming event such as Alarming or measurement creation.
@@ -69,7 +69,7 @@ The service can run as a daemon service in order to keep it up and running in th
 Basically there are 4 major tasks:
 
 1. Listening on a network for new devices -> Listener
-3. If a devices registers inside the network mapped against c8y_Serial of the Idneity Service -> Mapper
+3. If a devices registers inside the network mapped against c8y_Serial of the identity API -> Mapper
 2. If a proper device was detectect, do something -> Event class
 4. Result needs to be send to C8Y -> sendData
 
@@ -106,12 +106,6 @@ The sendData modul consists of two  major classes.
 One is the sending class itself in order to manage the sending of a current event.
 The second one is the connector  that manages the topic, the client ID of the device and keeps the connection until data was send. The valid connector needs to be handed over to the sending class. It gets its credentials and connection data from the config file and does not require to give addtional information while creating the instance.
 
-
-### MACIDs
-
-The idea of the parameterfile is to have a proofing instance of which parameters will be handeled. The structure is basically only the name of the parameter.
-
-![Parameters](pics/MACID.png)
 
 ### config
 
