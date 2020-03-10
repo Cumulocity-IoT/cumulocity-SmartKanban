@@ -94,9 +94,11 @@ The event is send as standard template as 'c8y_MAC_Event' combined with the name
 
 ### Mapper
 
-The mapper reads the file 'MACID.csv'. They are handeles as dictonaries within the module. There is just one task:
+The mapper checks the request from inventory API.
 
 1. Check whether the Mac address is listed as external ID in Cumulocity. If a managed object with the MAC address as c8y_Serial exists, the device is valid for sending events
+
+Sine ":" characters are split within the mqtt clientid the cy_Serial needs to be without ":", otherwise it will not recognice the device properly.
 
 ### sendData
 
