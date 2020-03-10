@@ -27,15 +27,15 @@ class MQTTc8yConnector(object):
         self.logger2 = logging.getLogger('MQTTc8yConnector')
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         self.logger2.debug('Logger for sendData was initialised')
-        self.ID = ID
+        self.ID = ID.translate({ord(':'): None}) 
         self.c8yMqttHost = settings.tenant
         self.logger2.info('c8yMqtt host was set to %s', self.c8yMqttHost)
         self.c8yMqttPort = int(settings.c8yPort)
         self.logger2.info('c8yMqtt port was set to %s', self.c8yMqttPort)
         self.tenantID = settings.tenantID
         self.logger2.info('The tenant ID is %s', self.tenantID)
-        self.deviceID = self.ID
-        self.clientID = settings.deviceID
+        self.deviceID = str(self.ID)
+        self.clientID = self.deviceID
         self.logger2.info('The used clientID for C8Y was set to %s', self.clientID)
         self.__c8yUser = settings.c8yUser
         self.logger2.info('c8y user was set to %s', self.__c8yUser)
