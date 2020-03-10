@@ -30,10 +30,11 @@ def udp_filter(pkt):
     else:
         logger.debug('No DHCP Layer')
 
-sniff(prn=udp_filter, store=0, filter="udp")
+
 if __name__ == "__main__":
     try:
         logger.info('Starting listener')
+        sniff(prn=udp_filter, store=0, filter="udp")
     except KeyboardInterrupt:
         logger.warning('KeyboardInterrupt was called, stopping listener and raising SystemExit')
         raise SystemExit
