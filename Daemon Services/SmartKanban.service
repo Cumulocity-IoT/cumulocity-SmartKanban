@@ -1,0 +1,12 @@
+[Unit]
+Description=MAC Sniffer
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/SmartKanban
+ExecStart=/usr/bin/python /home/pi/SmartKanban/listener.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
